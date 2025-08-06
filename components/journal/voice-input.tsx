@@ -64,9 +64,18 @@ useEffect(() => {
       recognitionRef.current.onerror = (event: any) => {
         console.error('Speech recognition error', event.error);
         setIsListening(false);
+        // Provide user feedback for common errors
+        if (event.error === 'not-allowed') {
+          setAiResponse('Microphone access denied. Please enable microphone permissions in your browser settings.');
+        } else if (event.error === 'no-speech') {
+          setAiResponse('No speech detected. Please try speaking louder or clearer.');
+        } else {
+          setAiResponse(`Speech recognition error: ${event.error}. Please try again.`);
+        }
       };
     } else {
       console.warn('Web Speech API not supported in this browser.');
+      setAiResponse('Your browser does not support the Web Speech API. Please use a modern browser like Chrome or Edge.');
     }
   }
 }, []);
@@ -89,22 +98,32 @@ const stopListening = () => {
 };
 
 const sendToAI = async (text: string) => {
-  if (!text) return;
+  if (!text) {
+    setAiResponse('Please speak or type something before getting an AI reflection.');
+    return;
+  }
   setIsLoadingAI(true);
   try {
-    const response = await fetch('/journal/api/chat', {
+    const response = await fetch('/api/chat', { // Changed API endpoint
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ prompt: text }),
+      body: JSON.stringify({
+        messages: [ // Sending messages array as expected by the API route
+          { role: "user", content: text },
+        ],
+      }),
     });
 
+    const data = await response.json();
+
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      console.error('Error from API route:', data.error);
+      setAiResponse(data.error || 'An unexpected error occurred with the AI service.');
+      return;
     }
 
-    const data = await response.json();
     setAiResponse(data.response);
   } catch (error) {
     console.error('Error sending text to AI:', error);
