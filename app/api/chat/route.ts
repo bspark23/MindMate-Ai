@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {
@@ -16,9 +16,8 @@ export async function POST(req: NextRequest) {
     }
     console.log("OpenRouter API Key status: Present (masked)");
 
+    // Re-introducing the system prompt for AI persona
     const systemPrompt = "You are a kind, supportive mental health coach. Be warm and understanding. Give positive, comforting, and safe advice. Don’t act like a doctor. Simply reflect on the user’s emotions and help them feel heard.";
-
-    // Prepend the system prompt to the messages array
     const messagesToSend = [{ role: "system", content: systemPrompt }, ...messages];
 
     const openRouterRes = await fetch("https://openrouter.ai/api/v1/chat/completions", {
@@ -26,14 +25,14 @@ export async function POST(req: NextRequest) {
       headers: {
         "Authorization": `Bearer ${OPENROUTER_API_KEY}`,
         "Content-Type": "application/json",
-        "HTTP-Referer": "http://localhost:3000",       // if testing locally
-        "X-Title": "VoiceBank Journal",                // optional metadata
+        "HTTP-Referer": "http://localhost:3000",       // Re-added for OpenRouter metadata
+        "X-Title": "VoiceBank Journal",                // Re-added for OpenRouter metadata
       },
       body: JSON.stringify({
-        model: "mistralai/mistral-7b-instruct", // ✅ Updated to the new model
-        messages: messagesToSend,
-        temperature: 0.7,
-        max_tokens: 1000,
+        model: "mistralai/mistral-7b-instruct", // Using the specified model
+        messages: messagesToSend, // Using messages with system prompt
+        temperature: 0.7, // Re-added for controlled output
+        max_tokens: 1000, // Re-added for controlled output length
       }),
     });
 
@@ -77,11 +76,11 @@ export async function POST(req: NextRequest) {
       );
     }
 
-  } catch (error: any) {
-    console.error('Unexpected error in AI chat API:', error);
+  } catch (err) {
+    console.error("❌ Request to OpenRouter failed:", err);
     return NextResponse.json(
-      { error: 'Internal server error.', details: error.message || 'Unknown error' },
-      { status: 500 }
+      { error: "Failed to connect to OpenRouter API." },
+      { status: 502 }
     );
   }
 }
