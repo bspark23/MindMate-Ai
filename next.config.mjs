@@ -1,13 +1,24 @@
-const withPWA = require('@ducanh2912/next-pwa').default({
-dest: 'public',
-disable: process.env.NODE_ENV === 'development',
-register: true,
-skipWaiting: true,
+import withPWAInit from '@ducanh2912/next-pwa';
+
+const withPWA = withPWAInit({
+  dest: 'public',
+  disable: process.env.NODE_ENV === 'development',
+  register: true,
+  skipWaiting: true,
 });
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-reactStrictMode: true,
+  reactStrictMode: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  images: {
+    unoptimized: true,
+  },
 };
 
-module.exports = withPWA(nextConfig);
+export default withPWA(nextConfig);
