@@ -1,0 +1,222 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 20%; /* text-light */
+
+    --card: 0 0% 100%; /* bg-light */
+    --card-foreground: 240 10% 20%; /* text-light */
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 20%;
+
+    --primary: 240, 80%, 70%; /* primary-light */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 200, 80%, 70%; /* accent-light */
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 240, 80%, 70%; /* primary-light */
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 10%; /* bg-dark */
+    --foreground: 240 10% 90%; /* text-dark */
+
+    --card: 240 10% 10%; /* bg-dark */
+    --card-foreground: 240 10% 90%; /* text-dark */
+
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 240, 80%, 80%; /* primary-dark */
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 200, 80%, 80%; /* accent-dark */
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 240, 80%, 80%; /* primary-dark */
+  }
+}
+
+@layer base {
+  body {
+    @apply font-sans antialiased;
+    /* Apply gradient background */
+    background: linear-gradient(135deg, var(--bg-gradient-start-light), var(--bg-gradient-end-light));
+    background-attachment: fixed; /* Ensures gradient covers entire viewport */
+  }
+
+  .dark body {
+    background: linear-gradient(135deg, var(--bg-gradient-start-dark), var(--bg-gradient-end-dark));
+    background-attachment: fixed;
+  }
+
+  /* Custom properties for gradients */
+  :root {
+    --bg-gradient-start-light: hsl(240, 100%, 98%);
+    --bg-gradient-end-light: hsl(200, 100%, 98%);
+  }
+
+  .dark {
+    --bg-gradient-start-dark: hsl(240, 20%, 15%);
+    --bg-gradient-end-dark: hsl(200, 20%, 15%);
+  }
+
+  /* Ensure text colors are consistent with the new palette */
+  .text-text-light {
+    color: hsl(240, 10%, 20%);
+  }
+  .dark .text-text-dark {
+    color: hsl(240, 10%, 90%);
+  }
+
+  .text-text-light\/70 {
+    color: hsla(240, 10%, 20%, 0.7);
+  }
+  .dark .text-text-dark\/70 {
+    color: hsla(240, 10%, 90%, 0.7);
+  }
+
+  .text-text-light\/80 {
+    color: hsla(240, 10%, 20%, 0.8);
+  }
+  .dark .text-text-dark\/80 {
+    color: hsla(240, 10%, 90%, 0.8);
+  }
+
+  .text-text-light\/60 {
+    color: hsla(240, 10%, 20%, 0.6);
+  }
+  .dark .text-text-dark\/60 {
+    color: hsla(240, 10%, 90%, 0.6);
+  }
+
+  .text-primary-light {
+    color: hsl(240, 80%, 70%);
+  }
+  .dark .text-primary-dark {
+    color: hsl(240, 80%, 80%);
+  }
+
+  .bg-primary-light\/10 {
+    background-color: hsla(240, 80%, 70%, 0.1);
+  }
+  .dark .bg-primary-dark\/10 {
+    background-color: hsla(240, 80%, 80%, 0.1);
+  }
+
+  .bg-primary-light {
+    background-color: hsl(240, 80%, 70%);
+  }
+  .dark .bg-primary-dark {
+    background-color: hsl(240, 80%, 80%);
+  }
+
+  .hover\:bg-accent-light:hover {
+    background-color: hsl(200, 80%, 70%);
+  }
+  .dark .hover\:bg-accent-dark:hover {
+    background-color: hsl(200, 80%, 80%);
+  }
+
+  .border-primary-light\/50 {
+    border-color: hsla(240, 80%, 70%, 0.5);
+  }
+  .dark .border-primary-dark\/50 {
+    border-color: hsla(240, 80%, 80%, 0.5);
+  }
+
+  .focus-visible\:ring-primary-light:focus-visible {
+    --tw-ring-color: hsl(240, 80%, 70%);
+  }
+  .dark .focus-visible\:ring-primary-dark:focus-visible {
+    --tw-ring-color: hsl(240, 80%, 80%);
+  }
+
+  .border-primary-light {
+    border-color: hsl(240, 80%, 70%);
+  }
+  .dark .border-primary-dark {
+    border-color: hsl(240, 80%, 80%);
+  }
+
+  .bg-bg-light {
+    background-color: hsl(0, 0%, 100%);
+  }
+  .dark .bg-bg-dark {
+    background-color: hsl(240, 10%, 10%);
+  }
+
+  .bg-bg-light\/90 {
+    background-color: hsla(0, 0%, 100%, 0.9);
+  }
+  .dark .bg-bg-dark\/90 {
+    background-color: hsla(240, 10%, 10%, 0.9);
+  }
+
+  .bg-gray-800 {
+    background-color: hsl(240, 10%, 18%); /* A slightly lighter dark gray for cards */
+  }
+  .dark .bg-gray-700 {
+    background-color: hsl(240, 10%, 25%); /* A slightly lighter dark gray for inputs */
+  }
+
+  .text-white {
+    color: hsl(0, 0%, 100%);
+  }
+
+  .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Inter', sans-serif; /* Ensure Inter font is applied */
+  }
+}
+
+@layer components {
+  .confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 9999;
+  }
+  .confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #f00; /* Default color, overridden by inline style */
+    animation: confetti 3s ease-out forwards;
+    opacity: 0;
+    transform-origin: center;
+    border-radius: 50%;
+  }
+}
