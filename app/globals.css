@@ -33,6 +33,9 @@
     --ring: 240, 80%, 70%;
 
     --radius: 0.5rem;
+
+    --bg-gradient-start-light: hsl(240, 100%, 98%);
+    --bg-gradient-end-light: hsl(200, 100%, 98%);
   }
 
   .dark {
@@ -63,10 +66,11 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 240, 80%, 80%;
-  }
-}
 
-@layer base {
+    --bg-gradient-start-dark: hsl(240, 20%, 15%);
+    --bg-gradient-end-dark: hsl(200, 20%, 15%);
+  }
+
   body {
     @apply font-sans antialiased;
     background: linear-gradient(135deg, var(--bg-gradient-start-light), var(--bg-gradient-end-light));
@@ -76,114 +80,6 @@
   .dark body {
     background: linear-gradient(135deg, var(--bg-gradient-start-dark), var(--bg-gradient-end-dark));
     background-attachment: fixed;
-  }
-
-  :root {
-    --bg-gradient-start-light: hsl(240, 100%, 98%);
-    --bg-gradient-end-light: hsl(200, 100%, 98%);
-  }
-
-  .dark {
-    --bg-gradient-start-dark: hsl(240, 20%, 15%);
-    --bg-gradient-end-dark: hsl(200, 20%, 15%);
-  }
-
-  .text-text-light {
-    color: hsl(240, 10%, 20%);
-  }
-  .dark .text-text-dark {
-    color: hsl(240, 10%, 90%);
-  }
-
-  .text-text-light\/70 {
-    color: hsla(240, 10%, 20%, 0.7);
-  }
-  .dark .text-text-dark\/70 {
-    color: hsla(240, 10%, 90%, 0.7);
-  }
-
-  .text-text-light\/80 {
-    color: hsla(240, 10%, 20%, 0.8);
-  }
-  .dark .text-text-dark\/80 {
-    color: hsla(240, 10%, 90%, 0.8);
-  }
-
-  .text-text-light\/60 {
-    color: hsla(240, 10%, 20%, 0.6);
-  }
-  .dark .text-text-dark\/60 {
-    color: hsla(240, 10%, 90%, 0.6);
-  }
-
-  .text-primary-light {
-    color: hsl(240, 80%, 70%);
-  }
-  .dark .text-primary-dark {
-    color: hsl(240, 80%, 80%);
-  }
-
-  .bg-primary-light\/10 {
-    background-color: hsla(240, 80%, 70%, 0.1);
-  }
-  .dark .bg-primary-dark\/10 {
-    background-color: hsla(240, 80%, 80%, 0.1);
-  }
-
-  .bg-primary-light {
-    background-color: hsl(240, 80%, 70%);
-  }
-  .dark .bg-primary-dark {
-    background-color: hsl(240, 80%, 80%);
-  }
-
-  .hover\:bg-accent-light:hover {
-    background-color: hsl(200, 80%, 70%);
-  }
-  .dark .hover\:bg-accent-dark:hover {
-    background-color: hsl(200, 80%, 80%);
-  }
-
-  .border-primary-light\/50 {
-    border-color: hsla(240, 80%, 70%, 0.5);
-  }
-  .dark .border-primary-dark\/50 {
-    border-color: hsla(240, 80%, 80%, 0.5);
-  }
-
-  .focus-visible\:ring-primary-light:focus-visible {
-    --tw-ring-color: hsl(240, 80%, 70%);
-  }
-  .dark .focus-visible\:ring-primary-dark:focus-visible {
-    --tw-ring-color: hsl(240, 80%, 80%);
-  }
-
-  .border-primary-light {
-    border-color: hsl(240, 80%, 70%);
-  }
-  .dark .border-primary-dark {
-    border-color: hsl(240, 80%, 80%);
-  }
-
-  .bg-bg-light {
-    background-color: hsl(0, 0%, 100%);
-  }
-  .dark .bg-bg-dark {
-    background-color: hsl(240, 10%, 10%);
-  }
-
-  .bg-bg-light\/90 {
-    background-color: hsla(0, 0%, 100%, 0.9);
-  }
-  .dark .bg-bg-dark\/90 {
-    background-color: hsla(240, 10%, 10%, 0.9);
-  }
-
-  .bg-gray-800 {
-    background-color: hsl(240, 10%, 18%);
-  }
-  .dark .bg-gray-700 {
-    background-color: hsl(240, 10%, 25%);
   }
 }
 
