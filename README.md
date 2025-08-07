@@ -33,7 +33,7 @@ This project is a GPT-powered journaling assistant designed to support mental we
 ### Installation
 
 ```bash
-git clone https://github.com/your-username/mental-health-journal-assistant.git
-cd mental-health-journal-assistant
+git clone https://github.com/your-username/mental-healthapp.git
+cd mental-healthapp
 npm install
 https://mental-heathapp-r418.vercel.app/
