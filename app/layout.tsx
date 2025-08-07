@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Toaster } from "@/components/ui/toaster"; // Import Toaster
+import { AudioPlayer } from "@/components/audio-player"; // Import AudioPlayer
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
   viewport: "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover",
-    generator: 'v0.dev'
+  generator: 'v0.dev'
 };
 
 export default function RootLayout({
@@ -38,6 +39,7 @@ export default function RootLayout({
           </main>
           <Footer />
           <Toaster /> {/* Add Toaster component here */}
+          <AudioPlayer /> {/* Add AudioPlayer component here */}
         </ThemeProvider>
       </body>
     </html>
