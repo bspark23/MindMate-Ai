@@ -185,10 +185,6 @@
   .dark .bg-gray-700 {
     background-color: hsl(240, 10%, 25%);
   }
-
-  .text-white {
-    color: hsl(0, 0%, 100%);
-  }
 }
 
 @layer components {
