@@ -90,6 +90,9 @@ theme: {
       "fade-in": "fade-in 0.6s ease-out forwards",
       "blink": "blink 1.4s infinite both",
     },
+    fontFamily: {
+      sans: ['Inter', 'sans-serif'],
+    },
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
