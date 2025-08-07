@@ -5,15 +5,15 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 240 10% 20%; /* text-light */
+    --foreground: 240 10% 20%;
 
-    --card: 0 0% 100%; /* bg-light */
-    --card-foreground: 240 10% 20%; /* text-light */
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 20%;
 
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 20%;
 
-    --primary: 240, 80%, 70%; /* primary-light */
+    --primary: 240, 80%, 70%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 210 40% 96.1%;
@@ -22,7 +22,7 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 200, 80%, 70%; /* accent-light */
+    --accent: 200, 80%, 70%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -30,22 +30,22 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 240, 80%, 70%; /* primary-light */
+    --ring: 240, 80%, 70%;
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 240 10% 10%; /* bg-dark */
-    --foreground: 240 10% 90%; /* text-dark */
+    --background: 240 10% 10%;
+    --foreground: 240 10% 90%;
 
-    --card: 240 10% 10%; /* bg-dark */
-    --card-foreground: 240 10% 90%; /* text-dark */
+    --card: 240 10% 10%;
+    --card-foreground: 240 10% 90%;
 
     --popover: 224 71.4% 4.1%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 240, 80%, 80%; /* primary-dark */
+    --primary: 240, 80%, 80%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -54,7 +54,7 @@
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 200, 80%, 80%; /* accent-dark */
+    --accent: 200, 80%, 80%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -62,16 +62,15 @@
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 240, 80%, 80%; /* primary-dark */
+    --ring: 240, 80%, 80%;
   }
 }
 
 @layer base {
   body {
     @apply font-sans antialiased;
-    /* Apply gradient background */
     background: linear-gradient(135deg, var(--bg-gradient-start-light), var(--bg-gradient-end-light));
-    background-attachment: fixed; /* Ensures gradient covers entire viewport */
+    background-attachment: fixed;
   }
 
   .dark body {
@@ -79,7 +78,6 @@
     background-attachment: fixed;
   }
 
-  /* Custom properties for gradients */
   :root {
     --bg-gradient-start-light: hsl(240, 100%, 98%);
     --bg-gradient-end-light: hsl(200, 100%, 98%);
@@ -90,7 +88,6 @@
     --bg-gradient-end-dark: hsl(200, 20%, 15%);
   }
 
-  /* Ensure text colors are consistent with the new palette */
   .text-text-light {
     color: hsl(240, 10%, 20%);
   }
@@ -183,10 +180,10 @@
   }
 
   .bg-gray-800 {
-    background-color: hsl(240, 10%, 18%); /* A slightly lighter dark gray for cards */
+    background-color: hsl(240, 10%, 18%);
   }
   .dark .bg-gray-700 {
-    background-color: hsl(240, 10%, 25%); /* A slightly lighter dark gray for inputs */
+    background-color: hsl(240, 10%, 25%);
   }
 
   .text-white {
@@ -194,7 +191,7 @@
   }
 
   .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-family: 'Inter', sans-serif; /* Ensure Inter font is applied */
+    font-family: 'Inter', sans-serif;
   }
 }
 
@@ -213,7 +210,7 @@
     position: absolute;
     width: 10px;
     height: 10px;
-    background-color: #f00; /* Default color, overridden by inline style */
+    background-color: #f00;
     animation: confetti 3s ease-out forwards;
     opacity: 0;
     transform-origin: center;
