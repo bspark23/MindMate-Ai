@@ -25,6 +25,6 @@ export default defineConfig({
   },
   // Exclude Next.js files from build
   optimizeDeps: {
-    exclude: ['app/**/*', 'components/**/*', 'lib/**/*', 'hooks/**/*', 'styles/**/*']
+    exclude: []
   }
 })

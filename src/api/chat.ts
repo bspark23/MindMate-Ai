@@ -1,5 +1,5 @@
 // AI Chat API for journal responses
-const API_KEY = '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'
+const API_KEY = import.meta.env.VITE_OPENROUTER_API_KEY
 
 export async function sendChatMessage(message: string): Promise<string> {
   console.log('🚀 Sending message to AI:', message)
