@@ -13,5 +13,18 @@ export default defineConfig({
   server: {
     port: 3000,
     host: true
+  },
+  build: {
+    outDir: 'dist',
+    sourcemap: false,
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html')
+      }
+    }
+  },
+  // Exclude Next.js files from build
+  optimizeDeps: {
+    exclude: ['app/**/*', 'components/**/*', 'lib/**/*', 'hooks/**/*', 'styles/**/*']
   }
 })

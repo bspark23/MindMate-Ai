@@ -59,7 +59,7 @@ export function MoodInsightsDashboard() {
       const [mood, count] = topMonthlyMood
       const avgIntensity = monthlyEntries
         .filter(e => e.mood === mood)
-        .reduce((sum, e) => sum + e.intensity, 0) / count
+        .reduce((sum, e) => sum + e.intensity, 0) / (count as number)
       
       setMonthlyInsights(`This month, you've been mostly ${mood} (${count} times) with an average intensity of ${avgIntensity.toFixed(1)}/10`)
     } else {

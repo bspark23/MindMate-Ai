@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { TrendingUp, BookText, Heart, Calendar } from 'lucide-react'
+import { BookText, Heart } from 'lucide-react'
 import { getMoodEntries, getUserProfile } from '@/lib/user-storage'
 import { format } from 'date-fns'
 
@@ -87,7 +87,7 @@ export default function HistoryPage() {
               </p>
             ) : (
               <div className="space-y-3 max-h-64 overflow-y-auto">
-                {moodEntries.slice(0, 5).map((entry, index) => (
+                {moodEntries.slice(0, 5).map((entry) => (
                   <div key={entry.id} className="flex items-center justify-between p-3 rounded-lg bg-white/50 dark:bg-black/20">
                     <div className="flex items-center gap-3">
                       <span className="text-xl">
@@ -134,7 +134,7 @@ export default function HistoryPage() {
               </p>
             ) : (
               <div className="space-y-3 max-h-64 overflow-y-auto">
-                {journalEntries.slice(0, 3).map((entry, index) => (
+                {journalEntries.slice(0, 3).map((entry) => (
                   <div key={entry.id} className="p-3 rounded-lg bg-white/50 dark:bg-black/20">
                     <p className="text-sm text-muted-foreground mb-2">
                       {format(new Date(entry.timestamp), 'MMM d, yyyy • h:mm a')}

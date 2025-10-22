@@ -10,7 +10,7 @@ import { StreakTracker } from '@/components/StreakTracker'
 import { LoadingScreen } from '@/components/LoadingScreen'
 import { Onboarding } from '@/components/Onboarding'
 import { getUserProfile, UserProfile } from '@/lib/user-storage'
-import { BookText, Heart, Target, TrendingUp, Stethoscope } from 'lucide-react'
+import { BookText, Heart, TrendingUp, Stethoscope } from 'lucide-react'
 
 export default function HomePage() {
   const [quote, setQuote] = useState('')

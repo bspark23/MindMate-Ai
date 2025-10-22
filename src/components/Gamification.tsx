@@ -29,7 +29,7 @@ export function Gamification() {
     const moodEntries = getMoodEntries()
     const journalEntries = JSON.parse(localStorage.getItem('mindmate_journal_entries') || '[]')
     
-    const today = new Date()
+    // const today = new Date()
     const streak = profile?.currentStreak || 0
     setCurrentStreak(streak)
 
