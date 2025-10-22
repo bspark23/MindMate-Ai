@@ -20,19 +20,22 @@ export async function POST(req: NextRequest) {
     const systemPrompt = "You are a kind, supportive mental health coach. Be warm and understanding. Give positive, comforting, and safe advice. Don’t act like a doctor. Simply reflect on the user’s emotions and help them feel heard.";
     const messagesToSend = [{ role: "system", content: systemPrompt }, ...messages];
 
+    console.log("API Key length:", OPENROUTER_API_KEY?.length);
+    console.log("API Key starts with:", OPENROUTER_API_KEY?.substring(0, 10));
+
     const openRouterRes = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${OPENROUTER_API_KEY}`,
+        "Authorization": `Bearer ${OPENROUTER_API_KEY?.trim()}`,
         "Content-Type": "application/json",
-        "HTTP-Referer": "http://localhost:3000",       // Re-added for OpenRouter metadata
-        "X-Title": "VoiceBank Journal",                // Re-added for OpenRouter metadata
+        "HTTP-Referer": "http://localhost:3000",
+        "X-Title": "Mental Health Journal",
       },
       body: JSON.stringify({
-        model: "mistralai/mistral-7b-instruct", // Using the specified model
-        messages: messagesToSend, // Using messages with system prompt
-        temperature: 0.7, // Re-added for controlled output
-        max_tokens: 1000, // Re-added for controlled output length
+        model: "meta-llama/llama-3.2-3b-instruct:free", // Using a free model
+        messages: messagesToSend,
+        temperature: 0.7,
+        max_tokens: 1000,
       }),
     });
 

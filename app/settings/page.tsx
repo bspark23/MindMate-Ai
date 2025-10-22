@@ -8,6 +8,9 @@ import { Settings, Trash, Download } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { PWAInstallPrompt } from '@/lib/types';
 import { toast } from '@/hooks/use-toast';
+import { NotificationSystem } from '@/components/notification-system';
+import { ShareProgress } from '@/components/share-progress';
+import { DemoMode } from '@/components/demo-mode';
 
 export default function SettingsPage() {
   const [deferredPrompt, setDeferredPrompt] = useState<PWAInstallPrompt | null>(null);
@@ -92,7 +95,8 @@ export default function SettingsPage() {
         Settings
       </h1>
 
-      <div className="max-w-2xl mx-auto space-y-6">
+      <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
+        {/* General Settings */}
         <Card className="shadow-lg rounded-xl bg-white dark:bg-gray-800 transition-colors duration-300">
           <CardHeader>
             <CardTitle className="text-primary-light dark:text-primary-dark flex items-center gap-2">
@@ -107,6 +111,15 @@ export default function SettingsPage() {
           </CardContent>
         </Card>
 
+        {/* New Features Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+          <NotificationSystem />
+          <ShareProgress />
+        </div>
+
+        {/* Demo Mode - Full Width */}
+        <DemoMode />
+
         <Card className="shadow-lg rounded-xl bg-white dark:bg-gray-800 transition-colors duration-300">
           <CardHeader>
             <CardTitle className="text-primary-light dark:text-primary-dark flex items-center gap-2">
@@ -117,7 +130,7 @@ export default function SettingsPage() {
             <Button
               onClick={handleClearData}
               variant="destructive"
-              className="w-full px-6 py-3 rounded-full shadow-md transition-all duration-300"
+              className="w-full px-4 sm:px-6 py-3 rounded-full shadow-md transition-all duration-300"
             >
               Clear All Journal Data
             </Button>
@@ -136,7 +149,7 @@ export default function SettingsPage() {
             </p>
             <Button
               onClick={handleExportData}
-              className="w-full px-6 py-3 rounded-full shadow-md transition-all duration-300 bg-primary-light text-white hover:bg-accent-light dark:bg-primary-dark dark:hover:bg-accent-dark"
+              className="w-full px-4 sm:px-6 py-3 rounded-full shadow-md transition-all duration-300 bg-primary-light text-white hover:bg-accent-light dark:bg-primary-dark dark:hover:bg-accent-dark"
             >
               Export All Data
             </Button>
@@ -156,7 +169,7 @@ export default function SettingsPage() {
               </p>
               <Button
                 onClick={handleInstallClick}
-                className="w-full px-6 py-3 rounded-full shadow-md transition-all duration-300 bg-primary-light text-white hover:bg-accent-light dark:bg-primary-dark dark:hover:bg-accent-dark"
+                className="w-full px-4 sm:px-6 py-3 rounded-full shadow-md transition-all duration-300 bg-primary-light text-white hover:bg-accent-light dark:bg-primary-dark dark:hover:bg-accent-dark"
               >
                 Install Mindful Journal
               </Button>
